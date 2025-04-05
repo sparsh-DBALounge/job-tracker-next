@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SignupForm } from './SignupForm';
+import { LoginForm } from './LoginForm';
 import authImage from '../../../../public/login-image.jpg';
 
 export default function signup() {
@@ -8,8 +8,8 @@ export default function signup() {
       <div className='auth__container'>
         {/* Left Half */}
         <div className='form__container'>
-          <h1 className='title'>Signup</h1>
-          <SignupForm />
+          <h1 className='title'>Login</h1>
+          <LoginForm />
         </div>
 
         {/* Right Half --> Image*/}

@@ -13,3 +13,12 @@ export interface UserType {
   email: string;
   avatarUrl: string;
 }
+
+export interface LoginForm {
+  email: string;
+  password: string;
+}
+
+export interface SignupForm extends LoginForm {
+  username: string;
+}

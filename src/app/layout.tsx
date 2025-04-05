@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import './globals.css';
 import ReduxProvider from '@/redux/provider';
+import { ReactQueryProvider } from './ReactQueryProvider';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   title: 'Job-Tracker',
@@ -13,7 +15,10 @@ export default function rootLayout({
   return (
     <html>
       <body className='antialiased'>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReactQueryProvider>
+          <ReduxProvider>{children}</ReduxProvider>
+          <Toaster position='top-right' />
+        </ReactQueryProvider>
       </body>
     </html>
   );

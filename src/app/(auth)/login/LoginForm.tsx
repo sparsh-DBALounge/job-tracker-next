@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useAuthHooks } from '@/hooks/useAuthHooks';
 
-export const SignupForm = () => {
-  const { isPending, signup } = useAuthHooks();
+export const LoginForm = () => {
+  const { isPending, login } = useAuthHooks();
 
   const [formData, setFormData] = useState({
-    username: '',
     email: '',
     password: '',
   });
@@ -21,23 +20,11 @@ export const SignupForm = () => {
   };
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
-    signup(e, formData);
+    login(e, formData);
   };
 
   return (
     <form className='auth__form' onSubmit={handleSubmit}>
-      {/* Username */}
-      <div className='auth__input'>
-        <label htmlFor='username'>Username</label>
-        <input
-          value={formData.username}
-          onChange={handleOnChange}
-          type='text'
-          id='username'
-          required
-        />
-      </div>
-
       {/* Email */}
       <div className='auth__input'>
         <label htmlFor='email'>Email</label>
@@ -66,14 +53,14 @@ export const SignupForm = () => {
         {isPending ? (
           <Loader2 size={25} className='animate-spin mx-auto' />
         ) : (
-          'Signup'
+          'Login'
         )}
       </button>
 
       <p className='text-center'>
-        Already have an account?{' '}
-        <Link href='/login' className='text-blue-500'>
-          Login
+        Dont&apos;t have an account?{' '}
+        <Link href='/signup' className='text-blue-500'>
+          Signup
         </Link>
       </p>
     </form>
